@@ -90,10 +90,10 @@ class Root(Tk):
         imgpath2 = path + "encoded.png"
 
         img1 = cv2.imread(imgpath1,1)
-        img2 = cv2.imread(imgpath2,1)
+        img2 = cv2.imread(imgpath2,2)
 
         img1 = cv2.cvtColor(img1, cv2.COLOR_RGB2BGR)
-        img2 = cv2.cvtColor(img2, cv2.COLOR_RGB2BGR)
+        img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
 
         titles = ['Cover Image', 'Stego Object']
         images = [img1, img2]
@@ -107,6 +107,6 @@ class Root(Tk):
         plt.show()
 
 
-if __name__ == '__main__':
+if name == '__main__':
     root = Root()
     root.mainloop()
