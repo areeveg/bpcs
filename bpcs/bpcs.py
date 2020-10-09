@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 """
 BPCS Steganography: encoding/decoding messages hidden in a vessel image
-
 Source: http://web.eece.maine.edu/~eason/steg/SPIE98.pdf
-
 BEHAVIORS:
     encoding
         * expects a vessel image file, message file, and alpha value
@@ -16,7 +14,6 @@ BEHAVIORS:
         * assesses the maximum size of a message that could be encoded within the vessel image
     test
         * runs the unit tests
-
 """
 import os.path
 import argparse
@@ -59,6 +56,6 @@ elif opts.behavior == 'encode':
     encode(opts.infile, opts.messagefile, opts.outfile, opts.alpha)
 elif opts.behavior == 'capacity':
     check_file_exists(opts.infile)
-    capacity(opts.infile, opts.outfile, opts.alpha)
+    capacity(opts.infile, alpha=opts.alpha, outfile=opts.outfile)
 elif opts.behavior == 'test':
     test_all()

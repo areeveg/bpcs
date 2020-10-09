@@ -190,6 +190,12 @@ class Root(Tk):
         msgfile_decoded = 'C:/Users/areev/OneDrive/Documents/GitHub/bpcs/examples/tmp.txt'
 
         #bpcs.capacity(vslfile, alpha) # check max size of message you can embed in vslfile
+        #img = cv2.imread('C:/Users/areev/OneDrive/Documents/GitHub/bpcs/examples/payload.png')
+        #img3 = cv2.imread('C:/Users/areev/OneDrive/Documents/GitHub/bpcs/examples/vessel.png')
+        #vslfile = cv2.imencode('.png', img3)[1].tobytes()
+        #type(vslfile)
+        #msgfile = cv2.imencode('.png', img)[1].tobytes()
+        #type(msgfile)
         bpcs.encode(vslfile, msgfile, encfile, alpha) # embed msgfile in vslfile, write to encfile
         bpcs.decode(encfile, msgfile_decoded, alpha) # recover message from encfile 
 

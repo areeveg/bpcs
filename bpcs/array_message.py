@@ -1,3 +1,4 @@
+#Convert image string to byte
 from math import ceil
 import numpy as np
 from functools import reduce
@@ -113,6 +114,7 @@ def grids_to_str(grids):
     byte_to_char = lambda byte: chr(byte_to_str(byte))
     return ''.join([byte_to_char(byte) for byte in bytes])
 
+#  Convert image to byte
 def write_message_grids(outfile, grids):
     """
     grids is list of numpy arrays, all of same shape
@@ -120,6 +122,7 @@ def write_message_grids(outfile, grids):
     with open(outfile, 'w') as f:
         f.write(grids_to_str(grids))
 
+#Convert image to byte
 def get_message_grid_from_grids(mgrids, conj_map):
     """
     mgrids is a list of numpy arrays, each a message grid of bits
@@ -151,8 +154,11 @@ def get_n_message_grids(nbits_per_map, ngrids):
     if x <= 0 and ngrids == 2:
         # edge case
         return 1
-    assert x > 0
-    assert y > 0
+    try:
+        assert x > 0 , "ivalide"
+        assert y > 0 , "ivalide"
+    except AssertionError as msg:  
+        print(msg)
     return x
 
 def separate_conj_map_from_message(grids, alpha):
